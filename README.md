@@ -95,6 +95,7 @@ Homepage
 - Clear navigation
 
 ## Data Flow
+```mermaid
 flowchart TD
     V[Victim] --> |Files complaint| C[Complaint System]
     C --> |Stores| CF[(Complaints File)]
@@ -120,7 +121,7 @@ flowchart TD
     
     M[Medical Support] --> |Provides| MC[(Medical Contacts)]
     V --> |Accesses| MC
-
+```
 ## Key Features and Screenshots
 
 ### 1. Secure Login System
