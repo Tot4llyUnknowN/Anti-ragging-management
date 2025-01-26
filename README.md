@@ -95,7 +95,31 @@ Homepage
 - Clear navigation
 
 ## Data Flow
-[Mermaid diagram from previous conversation shows the system's data flow]
+flowchart TD
+    V[Victim] --> |Files complaint| C[Complaint System]
+    C --> |Stores| CF[(Complaints File)]
+    
+    VOL[Volunteer] --> |Logs in| VS[Volunteer System]
+    VS --> |Reads| CF
+    VS --> |Validates| CF
+    VS --> |Updates| VF[(Verified Complaints)]
+    VS --> |Updates| NVF[(Not Verified)]
+    
+    A[Admin] --> |Logs in| AS[Admin System]
+    AS --> |Reads| CF
+    AS --> |Reads| VF
+    AS --> |Manages| VR[(Volunteer Records)]
+    AS --> |Posts| N[(Notices)]
+    
+    VA[Volunteer Applicant] --> |Applies| VRS[Volunteer Recruitment]
+    VRS --> |Stores| VP[(Pending Applications)]
+    AS --> |Reviews| VP
+    AS --> |Updates| VR
+    
+    VS --> |Reads| N
+    
+    M[Medical Support] --> |Provides| MC[(Medical Contacts)]
+    V --> |Accesses| MC
 
 ## Key Features and Screenshots
 
