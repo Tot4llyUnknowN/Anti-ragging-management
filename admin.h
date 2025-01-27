@@ -4,6 +4,7 @@
 void AdminLogin();
 void ViewComplaints();
 void ViewVerifiedComplaints();
+void NotVerifiedComplaints();
 void AddVolunteer();
 void ViewVolunteers();
 void WriteNotice();
