@@ -122,6 +122,34 @@ void ViewVerifiedComplaints() {
     press();
 }
 
+void NotVerifiedComplaints() {
+    system("cls");
+    printf("=======+++++****-------------****+++++=======\n");
+    printf("         Rejected Complaints Storage         \n");
+    printf("=======+++++****-------------****+++++=======\n\n");
+
+    FILE *file = fopen("notverified.txt", "r");
+    if(file == NULL) {
+        printf("Sorry! No information was found!");
+        return;
+    }
+
+    fseek(file, 0, SEEK_END);
+    long size = ftell(file);
+    rewind(file);
+
+    if(size == 0) {
+        printf("No rejected complaints...\n");
+    } else {
+        char c;
+        while((c = fgetc(file)) != EOF) {
+            putchar(c);
+        }
+    }
+    fclose(file);
+    press();
+}
+
 void AddVolunteer() {
     system("cls");
     printf("=======+++++****-------------****+++++=======\n");
