@@ -8,14 +8,14 @@
 #include "auth.h"
 
 void AdminLogin() {
-    char username[10], password[10];
+    char username[200], password[200];
 
     printf("Enter username: ");
     scanf("%s", username);
     printf("Enter password: ");
     int i = 0;
     char ch;
-    while((ch = _getch()) != 13 && i < 9) {
+    while((ch = _getch()) != 13 && i < 199) {
         if(ch == 8) {
             if(i > 0) {
                 i--;
