@@ -35,7 +35,7 @@ void ChangeCredentials() {
     scanf("%d", &option);
 
     if (option == 1) {
-        char newAdminUsername[10], newAdminPassword[10];
+        char newAdminUsername[200], newAdminPassword[200];
         printf("Enter new Admin username: ");
         scanf("%s", newAdminUsername);
         printf("Enter new Admin password: ");
@@ -46,7 +46,7 @@ void ChangeCredentials() {
         printf("Admin credentials updated successfully!\n");
     }
     else if (option == 2) {
-        char newVolunteerUsername[10], newVolunteerPassword[10];
+        char newVolunteerUsername[200], newVolunteerPassword[200];
         printf("Enter new Volunteer username: ");
         scanf("%s", newVolunteerUsername);
         printf("Enter new Volunteer password: ");
