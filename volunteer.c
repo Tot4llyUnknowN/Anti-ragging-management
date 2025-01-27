@@ -83,7 +83,6 @@ void SelectComplaint() {
     char line[200];
     int found = 0;
 
-    printf("All complaints: \n");
     fseek(pending, 0, SEEK_END);
     long size = ftell(pending);
     rewind(pending);
@@ -96,6 +95,8 @@ void SelectComplaint() {
         press();
         return;
     }
+
+    printf("All complaints: \n");
 
     char c;
     while((c = fgetc(pending)) != EOF) {
