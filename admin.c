@@ -361,7 +361,7 @@ void ViewVolunteers() {
 }
 
 void WriteNotice() {
-    printf("\n*****Write a Notice!*****\n");
+    printf("\n\n*****  Write a Notice!  *****\n");
     FILE *file = fopen("notices.txt", "a");
     if(file == NULL) {
         printf("Error! Cannot access notice section...");
