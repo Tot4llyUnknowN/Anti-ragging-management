@@ -38,7 +38,7 @@ void AdminLogin() {
             printf("=======+++++****-------------****+++++=======\n");
             printf("                 Admin Panel                 \n");
             printf("=======+++++****-------------****+++++=======\n\n");
-            printf("1. View complaints\n");
+            printf("1. View unsorted complaints\n");
             printf("2. View verified complaints\n");
             printf("\n3. Volunteer recruitment\n");
             printf("4. View current volunteers\n");
