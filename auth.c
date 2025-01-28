@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
+#include <conio.h>
 #include "auth.h"
 #include "globals.h"
 #include "utils.h"
@@ -26,6 +28,51 @@ void SaveCredentials() {
     }
 }
 
+int strongpass(const char *password){
+    int upr=0;
+    int lwr=0;
+    int num=0;
+    int spc=0;
+    int length=strlen(password);
+
+    if(length<8){
+        printf("Password must be at least 8 characters long!\n");
+        return 0;
+    }
+
+    for(int i=0; password[i]!='\0';i++){
+        if(isupper(password[i])){
+            upr=1;
+        }
+        if(islower(password[i])){
+            lwr=1;
+        }
+        if(isdigit(password[i])){
+            num=1;
+        }
+        if(ispunct(password[i])){
+            spc=1;
+        }
+    }
+    if(!upr){
+        printf("Password must contain at least one uppercase, one lowercase, one number and one special character!\n");
+        return 0;
+    }
+    if(!lwr){
+        printf("Password must contain at least one uppercase, one lowercase, one number and one special character!\n");
+        return 0;
+    }
+    if(!num){
+        printf("Password must contain at least one uppercase, one lowercase, one number and one special character!\n");
+        return 0;
+    }
+    if(!spc){
+        printf("Password must contain at least one uppercase, one lowercase, one number and one special character!\n");
+        return 0;
+    }
+    return 1;
+}
+
 void ChangeCredentials() {
     int option;
     printf("Change Credentials\n");
@@ -36,10 +83,33 @@ void ChangeCredentials() {
 
     if (option == 1) {
         char newAdminUsername[200], newAdminPassword[200];
-        printf("Enter new Admin username: ");
+        printf("Enter new admin username: ");
         scanf("%s", newAdminUsername);
-        printf("Enter new Admin password: ");
-        scanf("%s", newAdminPassword);
+        do{
+           int i = 0;
+           char ch;
+           printf("Enter new admin password: ");
+           while((ch = _getch()) != 13 && i < 199) {
+                if(ch == 8) {
+                   if(i > 0) {
+                   i--;
+                   printf("\b \b");
+                   }
+                }
+            else {
+               newAdminPassword[i++] = ch;
+               printf("*");
+            }
+        }
+        newAdminPassword[i] = '\0';
+        printf("\n");
+        getchar();
+
+        if (strcmp(newAdminUsername, newAdminPassword) == 0) {
+                printf("Password cannot be the same as username!\n");
+                continue;
+            }
+        }while(!strongpass(newAdminPassword));
 
         strcpy(AdminUsername, newAdminUsername);
         strcpy(AdminPassword, newAdminPassword);
@@ -47,10 +117,34 @@ void ChangeCredentials() {
     }
     else if (option == 2) {
         char newVolunteerUsername[200], newVolunteerPassword[200];
-        printf("Enter new Volunteer username: ");
+        printf("Enter new volunteer username: ");
         scanf("%s", newVolunteerUsername);
-        printf("Enter new Volunteer password: ");
-        scanf("%s", newVolunteerPassword);
+
+        do{
+           int i = 0;
+           char ch;
+           printf("Enter new volunteer password: ");
+           while((ch = _getch()) != 13 && i < 199) {
+                if(ch == 8) {
+                   if(i > 0) {
+                   i--;
+                   printf("\b \b");
+                   }
+                }
+            else {
+               newVolunteerPassword[i++] = ch;
+               printf("*");
+            }
+        }
+        newVolunteerPassword[i] = '\0';
+        printf("\n");
+        getchar();
+
+        if (strcmp(newVolunteerUsername, newVolunteerPassword) == 0) {
+                printf("Password cannot be the same as username!\n");
+                continue;
+            }
+        }while(!strongpass(newVolunteerPassword));
 
         strcpy(VolunteerUsername, newVolunteerUsername);
         strcpy(VolunteerPassword, newVolunteerPassword);
