@@ -5,11 +5,11 @@
 #include "utils.h"
 
 void volunteer() {
+    system("cls");
     printf("=======+++++****-------------****+++++=======\n");
     printf("   Fill up the Form to Join as A Volunteer   \n");
     printf("=======+++++****-------------****+++++=======\n\n");
     information v;
-    system("cls");
     char email[50], address[100];
     FILE *file = fopen("vpending.txt", "a");
     FILE *serialfile = fopen("id.txt", "r+");
