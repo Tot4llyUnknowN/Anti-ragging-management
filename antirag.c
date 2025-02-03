@@ -21,7 +21,7 @@ void ContactUs() {
     while((c = fgetc(file)) != EOF) {
         fgets(name, sizeof(name), file);
         strtok(name, "\n");
-        fscanf(file, "%49s %29s", phone, email);
+        fscanf(file, "%29s %49s", phone, email);
 
         printf("Name: %s\nPhone: %s, Email: %s\n\n", name, email, phone);
     }
