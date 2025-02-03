@@ -80,11 +80,14 @@ void ChangeCredentials() {
     printf("2. Change Volunteer Username/Password\n");
     printf("Choose an option: ");
     scanf("%d", &option);
+    getchar();
 
     if (option == 1) {
-        char newAdminUsername[200], newAdminPassword[200];
+        char newAdminUsername[200];
+        char newAdminPassword[200];
         printf("Enter new admin username: ");
-        scanf("%s", newAdminUsername);
+        fgets(newAdminUsername, sizeof(newAdminUsername), stdin);
+        newAdminUsername[strcspn(newAdminUsername, "\n")] = 0;
         do{
            int i = 0;
            char ch;
@@ -103,7 +106,6 @@ void ChangeCredentials() {
         }
         newAdminPassword[i] = '\0';
         printf("\n");
-        getchar();
 
         if (strcmp(newAdminUsername, newAdminPassword) == 0) {
                 printf("Password cannot be the same as username!\n");
@@ -116,9 +118,11 @@ void ChangeCredentials() {
         printf("Admin credentials updated successfully!\n");
     }
     else if (option == 2) {
-        char newVolunteerUsername[200], newVolunteerPassword[200];
+        char newVolunteerUsername[200]={0};
+        char newVolunteerPassword[200]={0};
         printf("Enter new volunteer username: ");
-        scanf("%s", newVolunteerUsername);
+        fgets(newVolunteerUsername, sizeof(newVolunteerUsername), stdin);
+        newVolunteerUsername[strcspn(newVolunteerUsername, "\n")] = 0;
 
         do{
            int i = 0;
@@ -138,7 +142,6 @@ void ChangeCredentials() {
         }
         newVolunteerPassword[i] = '\0';
         printf("\n");
-        getchar();
 
         if (strcmp(newVolunteerUsername, newVolunteerPassword) == 0) {
                 printf("Password cannot be the same as username!\n");
