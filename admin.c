@@ -40,25 +40,27 @@ void AdminLogin() {
             printf("=======+++++****-------------****+++++=======\n\n");
             printf("1. View unsorted complaints\n");
             printf("2. View verified complaints\n");
-            printf("\n3. Volunteer recruitment\n");
-            printf("4. View current volunteers\n");
-            printf("5. Write notice for volunteers\n");
-            printf("\n6. Change Admin and Volunteer Credentials\n");
-            printf("7. Logout\n");
+            printf("3. Rejected Complaints storage\n");
+            printf("\n4. Volunteer recruitment\n");
+            printf("5. View current volunteers\n");
+            printf("6. Write notice for volunteers\n");
+            printf("\n7. Change Admin and Volunteer Credentials\n");
+            printf("8. Logout\n");
             printf("\n\nChoose an option: \n");
             scanf("%d", &option);
 
             switch(option) {
                 case 1: ViewComplaints(); break;
                 case 2: ViewVerifiedComplaints(); break;
-                case 3: AddVolunteer(); break;
-                case 4: ViewVolunteers(); break;
-                case 5: WriteNotice(); break;
-                case 6: ChangeCredentials(); break;
-                case 7: return;
+                case 3: NotVerifiedComplaints(); break;
+                case 4: AddVolunteer(); break;
+                case 5: ViewVolunteers(); break;
+                case 6: WriteNotice(); break;
+                case 7: ChangeCredentials(); break;
+                case 8: return;
                 default: printf("Please choose a valid option..."); press();
             }
-        } while(option != 7);
+        } while(option != 8);
     } else {
         printf("Invalid username or password. Please try again...\n");
         press();
