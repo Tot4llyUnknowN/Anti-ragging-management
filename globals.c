@@ -1,6 +1,6 @@
 #include "globals.h"
 
-char AdminUsername[10] = "admin";
-char AdminPassword[10] = "password";
-char VolunteerUsername[10] = "volunteer";
-char VolunteerPassword[10] = "noragging";
+char AdminUsername[200] = "admin";
+char AdminPassword[200] = "password";
+char VolunteerUsername[200] = "volunteer";
+char VolunteerPassword[200] = "noragging";
