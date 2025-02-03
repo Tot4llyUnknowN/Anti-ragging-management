@@ -1,9 +1,9 @@
 #ifndef GLOBALS_H
 #define GLOBALS_H
 
-extern char AdminUsername[10];
-extern char AdminPassword[10];
-extern char VolunteerUsername[10];
-extern char VolunteerPassword[10];
+extern char AdminUsername[200];
+extern char AdminPassword[200];
+extern char VolunteerUsername[200];
+extern char VolunteerPassword[200];
 
 #endif
